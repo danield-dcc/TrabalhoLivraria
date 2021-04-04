@@ -2,7 +2,7 @@ import { Autor } from "./autor";
 import { Capitulo } from "./capitulo";
 
 export class Livro {
-    
+
     private _titulo: string;
     private _ISBN: string;
     private _autores: Array<Autor>
@@ -46,22 +46,27 @@ export class Livro {
 
 
      //método
-    public adicionarCapitulo(): string {
-        
+    public adicionarCapitulo(capitulo: string): Capitulo[]{
+            return Capitulo.append(capitulo);
+    
     }
     
-    public removerCapitulo(): string {
+    public removerCapitulo(capitulo: string):  Capitulo[] {
+        var pos = Capitulo.indexOf(capitulo)
         
+        return Capitulo.splice(pos, 1);
     }
 
 
-    public adicionarAuto(): string {
-        
+    public adicionarAuto(autor: string): Autor[] {
+        return Autor.append(autor);
     }
 
 
-    public removerAutor(): string {
+    public removerAutor(autor: string):  Autor[] {
+        var pos = Autor.indexOf(autor)
         
+        return Autor.splice(pos, 1);
     }
 }
 
