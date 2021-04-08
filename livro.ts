@@ -46,27 +46,28 @@ export class Livro {
 
 
      //método
-    public adicionarCapitulo(capitulo: string): Capitulo[]{
-            return Capitulo.append(capitulo);
+    public adicionarCapitulo(capituloDoTexto: string, texto: string): void{
+        const novoCapitulo = new Capitulo(capituloDoTexto, texto)
+        this._capitulos.push(novoCapitulo)
     
     }
     
-    public removerCapitulo(capitulo: string):  Capitulo[] {
-        var pos = Capitulo.indexOf(capitulo)
-        
-        return Capitulo.splice(pos, 1);
+    public removerCapitulo(capituloDoTexto: string): void{
+        for i in range(le)
+        const pos = this._capitulos.indexOf(capituloDoTexto)
+        this._capitulos.splice(pos, 1)
     }
 
 
-    public adicionarAuto(autor: string): Autor[] {
-        return Autor.append(autor);
+    public adicionarAutor(nome: string, dataDeNascimento: Date): void {
+        const novoAutor = new Autor(nome, dataDeNascimento)
+        this._autores.push(novoAutor)
     }
 
 
-    public removerAutor(autor: string):  Autor[] {
-        var pos = Autor.indexOf(autor)
-        
-        return Autor.splice(pos, 1);
+    public removerAutor(nome: string):  void {
+        const pos = this._autores.indexOf(nome)
+        this._autores.splice(pos, 1);
     }
 }
 
