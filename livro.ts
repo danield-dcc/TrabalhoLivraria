@@ -46,28 +46,57 @@ export class Livro {
 
 
      //método
-    public adicionarCapitulo(capituloDoTexto: string, texto: string): void{
-        const novoCapitulo = new Capitulo(capituloDoTexto, texto)
+    public adicionarCapitulo(capituloDoTexto: string, texto: string): number{
+
+        if (this._capitulos.length >= 100){
+            var resposta = -1
+            return (resposta)
+        } else {
+            const novoCapitulo = new Capitulo(capituloDoTexto, texto)
         this._capitulos.push(novoCapitulo)
+            return (this._capitulos.length) + 1 
+        }
     
     }
     
-    public removerCapitulo(capituloDoTexto: string): void{
-        for i in range(le)
-        const pos = this._capitulos.indexOf(capituloDoTexto)
-        this._capitulos.splice(pos, 1)
+    public removerCapitulo(escolha: number): number{
+
+        for (var i = 0; i < this._capitulos.length; i++)  {
+
+            if (escolha == i) {
+                this._capitulos.splice(i, 1)
+                return escolha
+            }
+        }
+        var resposta = -1
+        return (resposta)
     }
 
 
-    public adicionarAutor(nome: string, dataDeNascimento: Date): void {
-        const novoAutor = new Autor(nome, dataDeNascimento)
-        this._autores.push(novoAutor)
+    public adicionarAutor(nome: string, dataDeNascimento: Date): number {
+        if (this._autores.length >= 6){
+            var resposta = -1
+            return (resposta)
+        }else {
+            const novoAutor = new Autor(nome, dataDeNascimento)
+            this._autores.push(novoAutor)
+            return (this._autores.length) + 1 
+        }
+        
     }
 
 
-    public removerAutor(nome: string):  void {
-        const pos = this._autores.indexOf(nome)
-        this._autores.splice(pos, 1);
+    public removerAutor(escolha: number):  number {
+
+        for (var i = 0; i < this._autores.length; i++)  {
+
+            if (escolha  == i){
+                this._autores.splice(i, 1)
+                return escolha
+            }
+        }
+        var resposta = -1
+        return (resposta)
     }
 }
 
