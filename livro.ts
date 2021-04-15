@@ -2,7 +2,7 @@ import { Autor } from "./autor";
 import { Capitulo } from "./capitulo";
 
 export class Livro {
-    
+
     private _titulo: string;
     private _ISBN: string;
     private _autores: Array<Autor>
@@ -46,22 +46,57 @@ export class Livro {
 
 
      //método
-    public adicionarCapitulo(): string {
-        
+    public adicionarCapitulo(capituloDoTexto: string, texto: string): number{
+
+        if (this._capitulos.length >= 100){
+            var resposta = -1
+            return (resposta)
+        } else {
+            const novoCapitulo = new Capitulo(capituloDoTexto, texto)
+        this._capitulos.push(novoCapitulo)
+            return (this._capitulos.length) + 1 
+        }
+    
     }
     
-    public removerCapitulo(): string {
+    public removerCapitulo(escolha: number): number{
+
+        for (var i = 0; i < this._capitulos.length; i++)  {
+
+            if (escolha == i) {
+                this._capitulos.splice(i, 1)
+                return escolha
+            }
+        }
+        var resposta = -1
+        return (resposta)
+    }
+
+
+    public adicionarAutor(nome: string, dataDeNascimento: Date): number {
+        if (this._autores.length >= 6){
+            var resposta = -1
+            return (resposta)
+        }else {
+            const novoAutor = new Autor(nome, dataDeNascimento)
+            this._autores.push(novoAutor)
+            return (this._autores.length) + 1 
+        }
         
     }
 
 
-    public adicionarAuto(): string {
-        
-    }
+    public removerAutor(escolha: number):  number {
 
+        for (var i = 0; i < this._autores.length; i++)  {
 
-    public removerAutor(): string {
-        
+            if (escolha  == i){
+                this._autores.splice(i, 1)
+                return escolha
+            }
+        }
+        var resposta = -1
+        return (resposta)
     }
 }
 
