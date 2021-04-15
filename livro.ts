@@ -44,8 +44,27 @@ export class Livro {
     }
 
 
-
      //método
+
+     public buscarTitulo(): string {
+        let titulo = this.titulo
+        return titulo
+    }
+
+    public salvarTitulo(titulo: string): void {
+        this.titulo = titulo
+    }
+
+    public buscarISBN(): string {
+        let isbn = this.ISBN
+        return isbn
+    }
+
+    public salvarISBN(isbn: string): void {
+        this.ISBN = isbn
+    }
+
+
     public adicionarCapitulo(capituloDoTexto: string, texto: string): number{
 
         if (this._capitulos.length >= 100){
@@ -73,12 +92,12 @@ export class Livro {
     }
 
 
-    public adicionarAutor(nome: string, dataDeNascimento: Date): number {
+    public adicionarAutor(novoAutor:Autor): number {
         if (this._autores.length >= 6){
             var resposta = -1
             return (resposta)
         }else {
-            const novoAutor = new Autor(nome, dataDeNascimento)
+            
             this._autores.push(novoAutor)
             return (this._autores.length) + 1 
         }
