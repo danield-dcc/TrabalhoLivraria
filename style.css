@@ -1,0 +1,48 @@
+*{
+
+  box-sizing: border-box;
+}
+.Borderbox{
+
+  width:20%;
+  height:400px;
+  display:inline-flex;
+  margin:none;
+  padding:20px;
+  text-align: center;
+  align-items: center;
+  font-family: Aclonica;
+  font-size:small;
+  color:white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;;
+}
+
+#color1, #color2, #color3, #color4, #color5, #color6 {
+  font-size: 24px;
+  text-align: center;
+}
+
+#color1 {
+  background-color: pink;
+}
+
+#color2 {
+  background-color: yellow;
+}
+
+#color3 {
+  background-color: rgb(128, 58, 128);
+}
+
+#color4 {
+  background-color: rgba(25, 219, 25, 0.945);
+}
+
+#color5 {
+  background-color: rgb(123, 123, 255);
+}
+
+#color6 {
+  background-color: red;
+}
