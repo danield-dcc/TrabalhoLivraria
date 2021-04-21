@@ -1,4 +1,4 @@
-import { Livro } from "./livro";
+//import { Livro } from "./livro";
 import prompt from "prompt-sync";
 
 export class Autor {
@@ -36,7 +36,7 @@ export class Autor {
 
     }
 
-    public setDatadeNascimento(dataDeNscimento: string): void {
+    public salvarDatadeNascimento(dataDeNscimento: string): void {
         const diaFormatoBR = dataDeNscimento
         let dia1 = diaFormatoBR.slice(0, 2)
         let mes1 = diaFormatoBR.slice(3, 5)
@@ -47,7 +47,7 @@ export class Autor {
         this._dataDeNascimento = data;
     }
 
-    public getDataDeNascimento():string {
+    public buscarDataDeNascimento():string {
         let data = this._dataDeNascimento.toLocaleDateString()
         const diaFormatoBR = data
         let posicaoDia2 = diaFormatoBR.lastIndexOf("-")
