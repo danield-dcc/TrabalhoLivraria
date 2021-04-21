@@ -33,7 +33,6 @@ export class Autor {
 
     public salvarNome(salvaNome: string): void {
         this.nome = salvaNome
-
     }
 
     public salvarDatadeNascimento(dataDeNscimento: string): void {
@@ -43,7 +42,6 @@ export class Autor {
         let ano1 = diaFormatoBR.slice(6)
         let AnoMesDia = ano1 + "/" + mes1 + "/" + dia1
         const data = new Date(AnoMesDia) 
-
         this._dataDeNascimento = data;
     }
 
