@@ -86,6 +86,7 @@ export class Livro {
     }
 
 
+    
     public removerAutor(escolha: number):  number {
 
         for (var i = 0; i < this._autores.length; i++)  {
