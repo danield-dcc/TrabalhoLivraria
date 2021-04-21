@@ -25,7 +25,6 @@ export class Autor {
     }
 
     
-    
     public buscarNome(): string {
         let nomeAutor = this.nome
         return nomeAutor
