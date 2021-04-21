@@ -2,19 +2,101 @@ import { Autor } from "./autor";
 import { Capitulo } from "./capitulo";
 
 export class Livro {
-    titulo: string;
-    ISBN: string;
-    autores: Array<Autor>
-    capitulos: Array<Capitulo>
+
+    private _titulo: string;
+    private _ISBN: string;
+    private _autores: Array<Autor>
+    private _capitulos: Array<Capitulo>
 
     constructor(titulo: string, ISBN: string) {
-        this.titulo = titulo;
-        this.ISBN = ISBN;
-        this.autores = [];
-        this.capitulos = [];
+        this._titulo = titulo;
+        this._ISBN = ISBN;
+        this._autores = [];
+        this._capitulos = [];
     }
 
-    
+    public get titulo(): string {
+        return this._titulo
+    }
+    public set titulo(nome: string) {
+        this._titulo = nome;
+    }
 
+    public  get ISBN(): string{
+        return this._ISBN
+    }
+    public set ISBN(ISBN: string){
+        this._ISBN = ISBN
+    }
+    
+    public set autores(autores: Autor[]){
+        this._autores = autores
+    }
+    public  get autores(): Autor[]{
+        return this._autores
+    }
+
+    public  get capitulos(): Capitulo[]{
+        return this._capitulos
+    }
+    public set capitulos(capitulos: Capitulo[]){
+        this._capitulos = capitulos
+    }
+
+
+
+     //método
+    public adicionarCapitulo(capituloDoTexto: string, texto: string): number{
+
+        if (this._capitulos.length >= 100){
+            var resposta = -1
+            return (resposta)
+        } else {
+            const novoCapitulo = new Capitulo(capituloDoTexto, texto)
+        this._capitulos.push(novoCapitulo)
+            return (this._capitulos.length) + 1 
+        }
+    
+    }
+    
+    public removerCapitulo(escolha: number): number{
+
+        for (var i = 0; i < this._capitulos.length; i++)  {
+
+            if (escolha == i) {
+                this._capitulos.splice(i, 1)
+                return escolha
+            }
+        }
+        var resposta = -1
+        return (resposta)
+    }
+
+
+    public adicionarAutor(nome: string, dataDeNascimento: Date): number {
+        if (this._autores.length >= 6){
+            var resposta = -1
+            return (resposta)
+        }else {
+            const novoAutor = new Autor(nome, dataDeNascimento)
+            this._autores.push(novoAutor)
+            return (this._autores.length) + 1 
+        }
+        
+    }
+
+
+    public removerAutor(escolha: number):  number {
+
+        for (var i = 0; i < this._autores.length; i++)  {
+
+            if (escolha  == i){
+                this._autores.splice(i, 1)
+                return escolha
+            }
+        }
+        var resposta = -1
+        return (resposta)
+    }
 }
 
