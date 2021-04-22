@@ -1,4 +1,4 @@
-import { Livro } from "./livro";
+//import { Livro } from "./livro";
 import prompt from "prompt-sync";
 
 export class Autor {
