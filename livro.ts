@@ -64,6 +64,11 @@ export class Livro {
         this.ISBN = isbn
     }
 
+    public buscarCapitulo() {
+        let capitulos = this.capitulos
+        return capitulos
+    }
+
 
     public adicionarCapitulo(capituloDoTexto: string, texto: string): number{
 

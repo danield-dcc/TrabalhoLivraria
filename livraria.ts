@@ -13,7 +13,7 @@ export class Livraria {
     livros: Array<Livro>
     constructor() {
         this.livros = []
-       
+
     }
 
     public menu(): void {
@@ -59,7 +59,7 @@ export class Livraria {
     }
 
     private cadastrarLivro() {
-        
+
         let titulo: string = teclado("Entre com o titulo do Livro: ")
         let ISBN: string = teclado("Entre com o ISBN: ")
 
@@ -70,7 +70,7 @@ export class Livraria {
 
         let totalDeAutores: number = +teclado("Total de autores que obra possui: ")
 
-        //pula para o metodo cadastar autores
+       
         this.cadastrarAutores(livro, totalDeAutores)
 
         let totalDeCapitulos: number = +teclado("Total de capitulos do livro: ")
@@ -78,7 +78,7 @@ export class Livraria {
         this.cadastrarCapitulos(livro, totalDeCapitulos)
 
         this.livros.push(livro)
-       
+
 
     }
 
@@ -128,10 +128,10 @@ export class Livraria {
 
     private listarAcervo() {
         for (let i = 0; i < this.livros.length; i++) {
-            console.log(`Posição: ${i} - Livro: ${this.livros[i].buscarTitulo()}`)
-            console.log(`${i} -`, this.livros[i])
+            console.log(`Posição: ${i} - Livro: ${this.livros[i].buscarTitulo()} `)
+            //console.log(`${i} -`, this.livros[i])
 
-            //console.log(`${i} `,JSON.stringify((this.livros[i])))
+            
         }
     }
 
@@ -153,10 +153,10 @@ export class Livraria {
 
         switch (escolha) {
             case 1:
-              
+                this.adicionarNovoCapitulo(this.livros[posicao]);
                 break;
             case 2:
-                
+                this.adicionarNovoAutor(this.livros[posicao]);
                 break;
             default:
                 break
@@ -164,29 +164,47 @@ export class Livraria {
 
     }
 
-    private adicionarNovoCapitulo() {
-        
+    private adicionarNovoCapitulo(livro: Livro) {
+        let novoCapitulo = teclado("Adicione o capítulo do Livro: ")
+        let novoTexto = teclado("Adicione o novo texto do capítulo: ")
+        livro.adicionarCapitulo(novoCapitulo, novoTexto)
     }
 
-    private adicionarNovoAutor(){
-        
+    private adicionarNovoAutor(livro: Livro) {
+        let novoAutor: any = teclado("Entre com o nome do Autor: ")
+        let novaDataNasc: any = teclado("Entre com a data de Nascimento(dia/mês/ano): ")
+        let autor: Autor = new Autor(novoAutor, novaDataNasc)
+
+        autor.salvarNome(novoAutor)
+        autor.salvarDatadeNascimento(novaDataNasc)
+
+        livro.adicionarAutor(autor)
     }
 
 
 
-    private listarCapitulos(){
-        
+    private listarCapitulos() {
+        this.listarAcervo();
+        let posicao: number = +teclado("Entre com a posição do livro que gostaria de ver os capítulos: ")
+
+        this.listagemDosCapitulos(this.livros[posicao])
     }
 
     //novo listar capitulos
-    private listagemDosCapitulos(livro: Livro){
+    private listagemDosCapitulos(livro: Livro) {
 
-        
+        const capitulos = livro.buscarCapitulo();
+
+        //usadno o get para pegar a posisão
+        for (let i = 0; i < capitulos.length; i++) {
+            console.log(`Capitulo ${i + 1}`, capitulos[i].titulo, capitulos[i].descricao)
+        }
     }
 
 
-    private resetarLivraria(){
-       
+    private resetarLivraria() {
+        this.livros = []
+        console.log("Livraria resetada com sucesso.")
     }
 
 
